@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  web:
+    build: ./app
+    ports:
+      - "${WEB_PORT}:5000"
+    env_file:
+      - ./config/.env.dev
+    depends_on:
+      - db
+    networks:
+      - internal_net
+
+  db:
+    image: mysql:8.0
+    env_file:
+      - ./config/.env.dev
+    volumes:
+      - mysql_dev_data:/var/lib/mysql
+    networks:
+      - internal_net
+
+networks:
+  internal_net:
+
+volumes:
+  mysql_dev_data:
