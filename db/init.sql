@@ -63,3 +63,49 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Axel Blaze', 'Forward', 'Fire', 'Fire Tornado', 'Maximum Fire', 11),
 ('Xavier Foster', 'Forward', 'Fire', 'Meteor Blade', 'Grand Fire', 11),
 ('Austin Hobbes', 'Forward', 'Forest', 'Tiger Drive', 'Gladius Arch', 11);
+
+-- Original Season 1 - Raimon
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Mark Evans', 'Goalkeeper', 'Mountain', 'God Hand', 'Majin The Hand', 1),
+('Nathan Swift', 'Defender', 'Wind', 'Flurry Dash', 'Spinning Cut', 1),
+('Jack Wallside', 'Defender', 'Mountain', 'The Wall', 'The Mountain', 1),
+('Jim Wraith', 'Defender', 'Forest', 'Coil Turn', 'Spinning Cut', 1),
+('Tod Ironside', 'Defender', 'Fire', 'Dash Storm', 'Quick Draw', 1),
+('Steve Grim', 'Midfielder', 'Forest', 'Grenade Shot', 'Rolling Kick', 1),
+('Tim Saunders', 'Midfielder', 'Forest', 'Kung Fu Attack', 'Whirlwind Force', 1),
+('Sam Kincaid', 'Midfielder', 'Mountain', 'Grenade Shot', 'Quick Draw', 1),
+('Maxwell Carson', 'Midfielder', 'Wind', 'Cross Drive', 'Quick Draw', 1),
+('Axel Blaze', 'Forward', 'Fire', 'Fire Tornado', 'Inazuma Break', 1),
+('Kevin Dragonfly', 'Forward', 'Forest', 'Dragon Crash', 'Dragon Tornado', 1);
+
+-- Original Season 1 - Royal Academy
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Joseph King', 'Goalkeeper', 'Mountain', 'Power Shield', 'Beast Fang', 2),
+('Jude Sharp', 'Midfielder', 'Forest', 'Illusion Ball', 'Emperor Penguin No. 2', 2),
+('David Samford', 'Forward', 'Forest', 'Emperor Penguin No. 2', 'Emperor Penguin No. 1', 2),
+('Daniel Hatch', 'Forward', 'Fire', 'Twin Boost', 'Death Zone', 2),
+('Ben Simmons', 'Defender', 'Mountain', 'Killer Slide', 'Power Charge', 2);
+
+-- Original Season 1 - Zeus
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Paul Siddon', 'Goalkeeper', 'Mountain', 'Gigant Wall', 'Divine Shield', 3),
+('Apollo Light', 'Defender', 'Fire', 'Divine Arrow', 'Heaven Time', 3),
+('Artie Mishman', 'Midfielder', 'Forest', 'Heaven Time', 'Divine Strike', 3),
+('Jonas Demetrius', 'Forward', 'Mountain', 'Divine Strike', 'God Knows', 3),
+('Byron Love', 'Forward', 'Wind', 'God Knows', 'Heaven Time', 3);
+
+-- Original Season 1 - Occult
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Nathan Jones', 'Goalkeeper', 'Wind', 'Phantom Hand', 'Ghost Pull', 4),
+('Russell Walk', 'Defender', 'Forest', 'Ghost Pull', 'Phantom Shot', 4),
+('Jason Jones', 'Defender', 'Wind', 'Ghost Pull', 'Phantom Shot', 4),
+('Johan Tassman', 'Midfielder', 'Forest', 'Ghost Lock', 'Phantom Shot', 4),
+('Burt Wolf', 'Forward', 'Fire', 'Phantom Shot', 'Ghost Lock', 4);
+
+-- Original Season 1 - Wild
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Charlie Boardfield', 'Goalkeeper', 'Mountain', 'Tarzan Kick', 'Wild Claw', 5),
+('Hugo Talgeese', 'Midfielder', 'Fire', 'Spinning Cut', 'Bird of Fire', 5),
+('Cham Lion', 'Midfielder', 'Forest', 'Chameleon Shot', 'Wild Claw', 5),
+('Gary Lancaster', 'Forward', 'Mountain', 'Monkey Turn', 'Wild Claw', 5),
+('Adrian Speed', 'Forward', 'Wind', 'Cheetah Sprint', 'Wild Claw', 5);
