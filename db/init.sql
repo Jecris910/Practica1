@@ -20,36 +20,32 @@ CREATE TABLE IF NOT EXISTS players (
 );
 
 -- Original series - Season 1
-INSERT INTO teams (name, category, school_or_country) VALUES
-('Raimon', 'Original Season 1', 'Raimon Junior High'),
-('Royal Academy', 'Original Season 1', 'Royal Academy'),
-('Zeus', 'Original Season 1', 'Zeus Junior High'),
-('Occult', 'Original Season 1', 'Occult Junior High'),
-('Wild', 'Original Season 1', 'Wild Junior High');
+INSERT INTO teams (id, name, category, school_or_country) VALUES
+(1, 'Raimon', 'Original Season 1', 'Raimon Junior High'),
+(2, 'Royal Academy', 'Original Season 1', 'Royal Academy'),
+(3, 'Zeus', 'Original Season 1', 'Zeus Junior High'),
+(4, 'Occult', 'Original Season 1', 'Occult Junior High');
 
 -- Original series - Season 2
-INSERT INTO teams (name, category, school_or_country) VALUES
-('Gemini Storm', 'Original Season 2', 'Alius Academy'),
-('Epsilon', 'Original Season 2', 'Alius Academy'),
-('Diamond Dust', 'Original Season 2', 'Alius Academy'),
-('Prominence', 'Original Season 2', 'Alius Academy'),
-('Genesis', 'Original Season 2', 'Alius Academy');
+INSERT INTO teams (id, name, category, school_or_country) VALUES
+(6, 'Gemini Storm', 'Original Season 2', 'Alius Academy'),
+(7, 'Epsilon', 'Original Season 2', 'Alius Academy'),
+(8, 'Diamond Dust', 'Original Season 2', 'Alius Academy'),
+(10, 'Genesis', 'Original Season 2', 'Alius Academy');
 
 -- Original series - Season 3
-INSERT INTO teams (name, category, school_or_country) VALUES
-('Inazuma Japan', 'Original Season 3', 'Japan'),
-('Fire Dragon', 'Original Season 3', 'South Korea'),
-('Knights of Queen', 'Original Season 3', 'England'),
-('The Empire', 'Original Season 3', 'Argentina'),
-('Little Gigant', 'Original Season 3', 'Cotarl');
+INSERT INTO teams (id, name, category, school_or_country) VALUES
+(11, 'Inazuma Japan', 'Original Season 3', 'Japan'),
+(13, 'Knights of Queen', 'Original Season 3', 'England'),
+(14, 'The Empire', 'Original Season 3', 'Argentina'),
+(15, 'Little Gigant', 'Original Season 3', 'Cotarl');
 
 -- Inazuma Eleven GO - Season 1
-INSERT INTO teams (name, category, school_or_country) VALUES
-('Raimon GO', 'GO Season 1', 'Raimon Junior High'),
-('Royal Academy GO', 'GO Season 1', 'Royal Academy'),
-('Kirkwood GO', 'GO Season 1', 'Kirkwood Junior High'),
-('Alpine GO', 'GO Season 1', 'Alpine Junior High'),
-('Dragonlink', 'GO Season 1', 'Fifth Sector');
+INSERT INTO teams (id, name, category, school_or_country) VALUES
+(16, 'Raimon GO', 'GO Season 1', 'Raimon Junior High'),
+(17, 'Royal Academy GO', 'GO Season 1', 'Royal Academy'),
+(19, 'Alpine GO', 'GO Season 1', 'Alpine Junior High'),
+(20, 'Dragonlink', 'GO Season 1', 'Fifth Sector');
 
 -- Inazuma Japan starting eleven
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
@@ -103,14 +99,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Johan Tassman', 'Midfielder', 'Forest', 'Ghost Lock', 'Phantom Shot', 4),
 ('Burt Wolf', 'Forward', 'Fire', 'Phantom Shot', 'Ghost Lock', 4);
 
--- Original Season 1 - Wild
-INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Charlie Boardfield', 'Goalkeeper', 'Mountain', 'Tarzan Kick', 'Wild Claw', 5),
-('Hugo Talgeese', 'Midfielder', 'Fire', 'Spinning Cut', 'Bird of Fire', 5),
-('Cham Lion', 'Midfielder', 'Forest', 'Chameleon Shot', 'Wild Claw', 5),
-('Gary Lancaster', 'Forward', 'Mountain', 'Monkey Turn', 'Wild Claw', 5),
-('Adrian Speed', 'Forward', 'Wind', 'Cheetah Sprint', 'Wild Claw', 5);
-
 -- Original Season 2 - Gemini Storm
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
 ('Jordan Greenway', 'Midfielder', 'Wind', 'Astro Break', 'Cosmic Blast', 6),
@@ -135,14 +123,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Gocker', 'Midfielder', 'Forest', 'Ice Ground', 'Northern Impact', 8),
 ('Clara', 'Midfielder', 'Wind', 'Frozen Steal', 'Ice Block', 8);
 
--- Original Season 2 - Prominence
-INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Torch', 'Forward', 'Fire', 'Atomic Flare', 'Burning Phase', 9),
-('Heat', 'Midfielder', 'Fire', 'Burning Phase', 'Atomic Flare', 9),
-('Bomber', 'Defender', 'Mountain', 'Flame Dance', 'Fire Wall', 9),
-('Nepper', 'Midfielder', 'Forest', 'Fire Blizzard', 'Flame Dance', 9),
-('Grent', 'Goalkeeper', 'Mountain', 'Fire Wall', 'Burning Catch', 9);
-
 -- Original Season 2 - Genesis
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
 ('Xavier Foster', 'Forward', 'Fire', 'Meteor Blade', 'Supernova', 10),
@@ -150,14 +130,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Wheeze', 'Defender', 'Wind', 'Celestial Smash', 'Space Penguin', 10),
 ('Quill', 'Midfielder', 'Mountain', 'Gaia Break', 'Supernova', 10),
 ('Nero', 'Goalkeeper', 'Mountain', 'Procyon Net', 'Black Hole', 10);
-
--- Original Season 3 - Fire Dragon
-INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Jung-soo Jo', 'Goalkeeper', 'Mountain', 'Burning Catch', 'Power Shield', 12),
-('Chang-soo Choi', 'Midfielder', 'Forest', 'Dragon Slayer', 'Perfect Zone Press', 12),
-('Byron Love', 'Forward', 'Wind', 'God Knows', 'Heaven Time', 12),
-('Torch', 'Forward', 'Fire', 'Atomic Flare', 'Chaos Break', 12),
-('Gazelle', 'Forward', 'Wind', 'Northern Impact', 'Chaos Break', 12);
 
 -- Original Season 3 - Knights of Queen
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
@@ -204,14 +176,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Oxford', 'Defender', 'Wind', 'Grand Whirlwind', 'Explosive Cross', 17),
 ('Cornell', 'Midfielder', 'Forest', 'Grand Whirlwind', 'Explosive Cross', 17),
 ('Stanford', 'Forward', 'Fire', 'Explosive Cross', 'Power Shot', 17);
-
--- GO Season 1 - Kirkwood GO
-INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Bay Laurel', 'Forward', 'Forest', 'Tiger Drive', 'Tiger Storm', 18),
-('Bradford Ash', 'Midfielder', 'Fire', 'Cutting Pincers', 'Tiger Drive', 18),
-('Langford Ash', 'Defender', 'Mountain', 'Power Defense', 'Cutting Pincers', 18),
-('Dock Hickory', 'Goalkeeper', 'Mountain', 'Wooden Wall', 'Power Catch', 18),
-('Beck Heath', 'Midfielder', 'Wind', 'Tiger Attack', 'Quick Dash', 18);
 
 -- GO Season 1 - Alpine GO
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
