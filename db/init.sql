@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS players (
     element VARCHAR(20) NOT NULL,
     best_move_1 VARCHAR(100) NOT NULL,
     best_move_2 VARCHAR(100) NOT NULL,
+    image_path VARCHAR(255),
     team_id INT NOT NULL,
     FOREIGN KEY (team_id) REFERENCES teams(id)
 );
