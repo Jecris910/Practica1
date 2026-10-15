@@ -181,3 +181,49 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Walter Mountain', 'Defender', 'Mountain', 'Ground Quake', 'Rock Wall Dam', 15),
 ('Ghoshu Flare', 'Forward', 'Fire', 'Double Jaw', 'X Blast', 15),
 ('Drago Hill', 'Forward', 'Mountain', 'X Blast', 'Double Jaw', 15);
+
+-- GO Season 1 - Raimon GO
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Samguk Han', 'Goalkeeper', 'Fire', 'Burning Catch', 'Gaia Barrier', 16),
+('Subaru Honda', 'Defender', 'Mountain', 'Full Steam', 'Power Defense', 16),
+('Gabriel Garcia', 'Defender', 'Forest', 'The Mist', 'Mystic Mist', 16),
+('Jean-Pierre Lapin', 'Defender', 'Mountain', 'Incandescent Jump', 'Air Steps', 16),
+('Ade Kebe', 'Midfielder', 'Wind', 'Water Whirl', 'Quick Dash', 16),
+('Arion Sherwind', 'Midfielder', 'Wind', 'Easy Breezy', 'Mach Wind', 16),
+('Riccardo Di Rigo', 'Midfielder', 'Forest', 'Fortissimo Foot', 'Harmonics', 16),
+('Victor Blade', 'Forward', 'Fire', 'Doom Sword', 'Death Drop', 16),
+('Michael Ballzack', 'Forward', 'Mountain', 'Sidewinder', 'Power Spike', 16),
+('Ryoma Nishiki', 'Midfielder', 'Fire', 'Acrobat Keep', 'Samurai Strike', 16),
+('Aitor Cazador', 'Defender', 'Forest', 'Hunter Net', 'Propulsion Defense', 16);
+
+-- GO Season 1 - Royal Academy GO
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Preston Princeton', 'Goalkeeper', 'Mountain', 'Power Clear', 'Force Save', 17),
+('Rex Remington', 'Forward', 'Mountain', 'Emperor Penguin No. 7', 'Crow Fury', 17),
+('Oxford', 'Defender', 'Wind', 'Grand Whirlwind', 'Explosive Cross', 17),
+('Cornell', 'Midfielder', 'Forest', 'Grand Whirlwind', 'Explosive Cross', 17),
+('Stanford', 'Forward', 'Fire', 'Explosive Cross', 'Power Shot', 17);
+
+-- GO Season 1 - Kirkwood GO
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Bay Laurel', 'Forward', 'Forest', 'Tiger Drive', 'Tiger Storm', 18),
+('Bradford Ash', 'Midfielder', 'Fire', 'Cutting Pincers', 'Tiger Drive', 18),
+('Langford Ash', 'Defender', 'Mountain', 'Power Defense', 'Cutting Pincers', 18),
+('Dock Hickory', 'Goalkeeper', 'Mountain', 'Wooden Wall', 'Power Catch', 18),
+('Beck Heath', 'Midfielder', 'Wind', 'Tiger Attack', 'Quick Dash', 18);
+
+-- GO Season 1 - Alpine GO
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Wolfe Whyte', 'Goalkeeper', 'Mountain', 'Ice Block', 'Frozen Wall', 19),
+('Sascha Kotch', 'Defender', 'Mountain', 'Snow Fortress', 'Ice Ground', 19),
+('Guy l''Acier', 'Defender', 'Forest', 'Frozen Steal', 'Ice Ground', 19),
+('Art Tundra', 'Midfielder', 'Wind', 'Snowstorm', 'Frozen Steal', 19),
+('Njord Snio', 'Forward', 'Wind', 'White Hurricane', 'Northern Impact', 19);
+
+-- GO Season 1 - Dragonlink
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Senguuji Yamato', 'Goalkeeper', 'Mountain', 'King Fire', 'Titan Wall', 20),
+('Gomaki Tetsurou', 'Defender', 'Mountain', 'Thousand Road', 'Power Defense', 20),
+('Gouishi Senma', 'Defender', 'Fire', 'Thousand Road', 'Heavy Block', 20),
+('Seijou Shougo', 'Forward', 'Wind', 'Thousand Road', 'Dragon Shot', 20),
+('Godai Shingo', 'Forward', 'Fire', 'Dragon Shot', 'Power Spike', 20);
