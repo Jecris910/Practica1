@@ -13,7 +13,7 @@ services:
       - internal_net
 
   db:
-    image: mysql:5.7
+    build: ./db
     env_file:
       - ./config/.env.dev
     volumes:
