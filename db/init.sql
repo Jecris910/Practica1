@@ -109,3 +109,43 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Cham Lion', 'Midfielder', 'Forest', 'Chameleon Shot', 'Wild Claw', 5),
 ('Gary Lancaster', 'Forward', 'Mountain', 'Monkey Turn', 'Wild Claw', 5),
 ('Adrian Speed', 'Forward', 'Wind', 'Cheetah Sprint', 'Wild Claw', 5);
+
+-- Original Season 2 - Gemini Storm
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Jordan Greenway', 'Midfielder', 'Wind', 'Astro Break', 'Cosmic Blast', 6),
+('Janus', 'Forward', 'Wind', 'Astro Break', 'Universe Blast', 6),
+('Io', 'Defender', 'Mountain', 'Gravitational Force', 'Meteor Shower', 6),
+('Ganymede', 'Midfielder', 'Forest', 'Meteor Shower', 'Cosmic Blast', 6),
+('Callisto', 'Goalkeeper', 'Mountain', 'Black Hole', 'Gravitational Force', 6);
+
+-- Original Season 2 - Epsilon
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Dvalin', 'Goalkeeper', 'Mountain', 'Wormhole', 'Black Hole', 7),
+('Desarm', 'Forward', 'Fire', 'Gungnir', 'Northern Impact', 7),
+('Zell', 'Midfielder', 'Wind', 'Meteor Shower', 'Gaia Break', 7),
+('Metron', 'Defender', 'Forest', 'Gravitational Force', 'Cosmic Blast', 7),
+('Kormer', 'Midfielder', 'Mountain', 'Gaia Break', 'Meteor Shower', 7);
+
+-- Original Season 2 - Diamond Dust
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Gazelle', 'Forward', 'Wind', 'Northern Impact', 'Frozen Steal', 8),
+('Icer', 'Goalkeeper', 'Mountain', 'Frozen Wall', 'Ice Block', 8),
+('Beluga', 'Defender', 'Wind', 'Frozen Steal', 'Ice Ground', 8),
+('Gocker', 'Midfielder', 'Forest', 'Ice Ground', 'Northern Impact', 8),
+('Clara', 'Midfielder', 'Wind', 'Frozen Steal', 'Ice Block', 8);
+
+-- Original Season 2 - Prominence
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Torch', 'Forward', 'Fire', 'Atomic Flare', 'Burning Phase', 9),
+('Heat', 'Midfielder', 'Fire', 'Burning Phase', 'Atomic Flare', 9),
+('Bomber', 'Defender', 'Mountain', 'Flame Dance', 'Fire Wall', 9),
+('Nepper', 'Midfielder', 'Forest', 'Fire Blizzard', 'Flame Dance', 9),
+('Grent', 'Goalkeeper', 'Mountain', 'Fire Wall', 'Burning Catch', 9);
+
+-- Original Season 2 - Genesis
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Xavier Foster', 'Forward', 'Fire', 'Meteor Blade', 'Supernova', 10),
+('Bellatrix', 'Midfielder', 'Forest', 'Space Penguin', 'Supernova', 10),
+('Wheeze', 'Defender', 'Wind', 'Celestial Smash', 'Space Penguin', 10),
+('Quill', 'Midfielder', 'Mountain', 'Gaia Break', 'Supernova', 10),
+('Nero', 'Goalkeeper', 'Mountain', 'Procyon Net', 'Black Hole', 10);
