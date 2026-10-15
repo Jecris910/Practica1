@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import json
 import os
 import pymysql
@@ -52,7 +52,7 @@ def check_cache():
 
 @app.route("/")
 def home():
-    return "Practica 1 - Multi-environment deployment"
+    return render_template("index.html")
 
 @app.route("/status")
 def status():

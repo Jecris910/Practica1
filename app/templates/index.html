@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inazuma Eleven - Service Status</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #f4f6f8;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .status-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .status-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 180px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .connected {
+            color: green;
+            font-weight: bold;
+        }
+
+        .disconnected {
+            color: red;
+            font-weight: bold;
+        }
+
+        .not-configured {
+            color: #777;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Inazuma Eleven Multi-environment Deployment</h1>
+
+<h2>Service status</h2>
+
+<div class="status-container">
+    <div class="status-card">
+        <h3>Web</h3>
+        <span id="web">Checking...</span>
+    </div>
+
+    <div class="status-card">
+        <h3>Database</h3>
+        <span id="database">Checking...</span>
+    </div>
+
+    <div class="status-card">
+        <h3>Cache</h3>
+        <span id="cache">Checking...</span>
+    </div>
+</div>
+
+<h2>Teams</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Season</th>
+            <th>School / Country</th>
+        </tr>
+    </thead>
+
+    <tbody id="teams">
+        <tr>
+            <td colspan="3">Loading teams...</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function statusClass(value) {
+    if (value === "connected") {
+        return "connected";
+    }
+
+    if (value === "disconnected") {
+        return "disconnected";
+    }
+
+    return "not-configured";
+}
+
+function loadStatus() {
+    fetch("/status")
+        .then(response => response.json())
+        .then(data => {
+            ["web", "database", "cache"].forEach(service => {
+                const element = document.getElementById(service);
+
+                element.textContent = data[service];
+                element.className = statusClass(data[service]);
+            });
+        });
+}
+
+function loadTeams() {
+    fetch("/teams")
+        .then(response => response.json())
+        .then(data => {
+            const table = document.getElementById("teams");
+            table.innerHTML = "";
+
+            if (!data.teams) {
+                table.innerHTML =
+                    '<tr><td colspan="3">Database unavailable</td></tr>';
+                return;
+            }
+
+            data.teams.forEach(team => {
+                const row = document.createElement("tr");
+
+                row.innerHTML =
+                    "<td>" + team.name + "</td>" +
+                    "<td>" + team.category + "</td>" +
+                    "<td>" + team.school_or_country + "</td>";
+
+                table.appendChild(row);
+            });
+        });
+}
+
+loadStatus();
+loadTeams();
+
+setInterval(loadStatus, 5000);
+</script>
+
+</body>
+</html>
