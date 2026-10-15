@@ -149,3 +149,35 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Wheeze', 'Defender', 'Wind', 'Celestial Smash', 'Space Penguin', 10),
 ('Quill', 'Midfielder', 'Mountain', 'Gaia Break', 'Supernova', 10),
 ('Nero', 'Goalkeeper', 'Mountain', 'Procyon Net', 'Black Hole', 10);
+
+-- Original Season 3 - Fire Dragon
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Jung-soo Jo', 'Goalkeeper', 'Mountain', 'Burning Catch', 'Power Shield', 12),
+('Chang-soo Choi', 'Midfielder', 'Forest', 'Dragon Slayer', 'Perfect Zone Press', 12),
+('Byron Love', 'Forward', 'Wind', 'God Knows', 'Heaven Time', 12),
+('Torch', 'Forward', 'Fire', 'Atomic Flare', 'Chaos Break', 12),
+('Gazelle', 'Forward', 'Wind', 'Northern Impact', 'Chaos Break', 12);
+
+-- Original Season 3 - Knights of Queen
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Freddie McQueen', 'Goalkeeper', 'Mountain', 'Galatyn', 'Paladin Guard', 13),
+('Johnny Gascoigne', 'Defender', 'Mountain', 'Stone Prison', 'Paladin Strike', 13),
+('David Buckingham', 'Defender', 'Forest', 'Paladin Strike', 'Stone Prison', 13),
+('Lance Rotten', 'Defender', 'Fire', 'Ultra Moon', 'Paladin Guard', 13),
+('Edgar Valtinas', 'Forward', 'Forest', 'Excalibur', 'Paladin Strike', 13);
+
+-- Original Season 3 - The Empire
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Jorge Ortega', 'Goalkeeper', 'Mountain', 'Iron Wall', 'Million Hands', 14),
+('Teles Torrue', 'Defender', 'Mountain', 'Iron Wall', 'Zigzag Spark', 14),
+('Julio Acosta', 'Defender', 'Forest', 'Zigzag Spark', 'Rolling Slide', 14),
+('Gordo Diaz', 'Midfielder', 'Mountain', 'Andes Antlion', 'Iron Wall', 14),
+('Roberto Torres', 'Midfielder', 'Wind', 'Andes Antlion', 'Rolling Slide', 14);
+
+-- Original Season 3 - Little Gigant
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Rococo Ulpa', 'Goalkeeper', 'Mountain', 'God Hand X', 'Tamashii The Hand', 15),
+('Windy Fasta', 'Defender', 'Wind', 'Air Ride', 'Double Jaw', 15),
+('Walter Mountain', 'Defender', 'Mountain', 'Ground Quake', 'Rock Wall Dam', 15),
+('Ghoshu Flare', 'Forward', 'Fire', 'Double Jaw', 'X Blast', 15),
+('Drago Hill', 'Forward', 'Mountain', 'X Blast', 'Double Jaw', 15);
