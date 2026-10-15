@@ -1,37 +1,50 @@
 from flask import Flask, jsonify
+import json
 import os
 import pymysql
 import redis
 
 app = Flask(__name__)
 
+def get_database_connection():
+    return pymysql.connect(
+        host=os.getenv("MYSQL_HOST"),
+        port=int(os.getenv("MYSQL_PORT", "3306")),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        database=os.getenv("MYSQL_DATABASE"),
+        connect_timeout=2,
+        cursorclass=pymysql.cursors.DictCursor
+    )
+
+def get_cache_connection():
+    redis_host = os.getenv("REDIS_HOST")
+
+    if not redis_host:
+        return None
+
+    return redis.Redis(
+        host=redis_host,
+        port=int(os.getenv("REDIS_PORT", "6379")),
+        socket_connect_timeout=2,
+        decode_responses=True
+    )
+
 def check_database():
     try:
-        connection = pymysql.connect(
-            host=os.getenv("MYSQL_HOST"),
-            port=int(os.getenv("MYSQL_PORT", "3306")),
-            user=os.getenv("MYSQL_USER"),
-            password=os.getenv("MYSQL_PASSWORD"),
-            database=os.getenv("MYSQL_DATABASE"),
-            connect_timeout=2
-        )
+        connection = get_database_connection()
         connection.close()
         return "connected"
     except Exception:
         return "disconnected"
 
 def check_cache():
-    redis_host = os.getenv("REDIS_HOST")
-
-    if not redis_host:
-        return "not configured"
-
     try:
-        cache = redis.Redis(
-            host=redis_host,
-            port=int(os.getenv("REDIS_PORT", "6379")),
-            socket_connect_timeout=2
-        )
+        cache = get_cache_connection()
+
+        if cache is None:
+            return "not configured"
+
         cache.ping()
         return "connected"
     except Exception:
@@ -48,6 +61,55 @@ def status():
         "database": check_database(),
         "cache": check_cache()
     })
+
+@app.route("/teams")
+def teams():
+    cache = None
+
+    try:
+        cache = get_cache_connection()
+
+        if cache is not None:
+            cached_teams = cache.get("teams")
+
+            if cached_teams:
+                return jsonify({
+                    "source": "cache",
+                    "teams": json.loads(cached_teams)
+                })
+    except Exception:
+        cache = None
+
+    try:
+        connection = get_database_connection()
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT id, name, category, school_or_country FROM teams"
+            )
+            teams_data = cursor.fetchall()
+
+        connection.close()
+
+        if cache is not None:
+            try:
+                cache.setex(
+                    "teams",
+                    60,
+                    json.dumps(teams_data)
+                )
+            except Exception:
+                pass
+
+        return jsonify({
+            "source": "database",
+            "teams": teams_data
+        })
+
+    except Exception:
+        return jsonify({
+            "error": "database unavailable"
+        }), 503
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, threaded=False)
