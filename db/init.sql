@@ -227,3 +227,14 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Gouishi Senma', 'Defender', 'Fire', 'Thousand Road', 'Heavy Block', 20),
 ('Seijou Shougo', 'Forward', 'Wind', 'Thousand Road', 'Dragon Shot', 20),
 ('Godai Shingo', 'Forward', 'Fire', 'Dragon Shot', 'Power Spike', 20);
+
+-- Original Season 3 - Orpheus
+INSERT INTO teams (name, category, school_or_country) VALUES
+('Orpheus', 'Original Season 3', 'Italy');
+
+INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
+('Gigi Blasi', 'Goalkeeper', 'Wind', 'Colosseum Guard', 'Catenaccio Counter', 21),
+('Angelo Gabrini', 'Defender', 'Forest', 'Echo Ball', 'Catenaccio Counter', 21),
+('Nakata Hidetoshi', 'Midfielder', 'Forest', 'Brave Shot', 'Catenaccio Counter', 21),
+('Paolo Bianchi', 'Forward', 'Forest', 'Odin Sword', 'Brave Shot', 21),
+('Raffaele Generani', 'Forward', 'Fire', 'Freeze Shot', 'Odin Sword', 21);
