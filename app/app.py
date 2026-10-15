@@ -62,6 +62,40 @@ def status():
         "cache": check_cache()
     })
 
+
+@app.route("/players")
+def players():
+    try:
+        connection = get_database_connection()
+
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT
+                    p.id,
+                    p.name,
+                    p.position,
+                    p.element,
+                    p.best_move_1,
+                    p.best_move_2,
+                    p.image_path,
+                    t.name AS team
+                FROM players p
+                JOIN teams t ON p.team_id = t.id
+                ORDER BY t.id, p.id
+            """)
+            players_data = cursor.fetchall()
+
+        connection.close()
+
+        return jsonify({
+            "players": players_data
+        })
+
+    except Exception:
+        return jsonify({
+            "error": "database unavailable"
+        }), 503
+
 @app.route("/teams")
 def teams():
     cache = None
