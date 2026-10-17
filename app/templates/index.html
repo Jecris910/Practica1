@@ -395,7 +395,9 @@ function renderPlayers(players) {
             card.style.background = colors.background;
             card.style.color = colors.text;
             card.style.borderColor = colors.accent;
-            card.style.borderWidth = "3px";
+            card.style.borderWidth = "4px";
+            card.style.borderStyle = "solid";
+            card.style.boxShadow = "0 0 0 2px " + colors.accent + ", 0 4px 10px rgba(0, 0, 0, 0.15)";
         }
 
         const imageContainer = document.createElement("div");
