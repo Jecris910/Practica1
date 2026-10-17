@@ -49,15 +49,10 @@ INSERT INTO teams (id, name, category, school_or_country) VALUES
 
 -- Inazuma Japan starting eleven
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Mark Evans', 'Goalkeeper', 'Mountain', 'God Hand', 'Majin The Hand', 11),
-('Jack Wallside', 'Defender', 'Mountain', 'The Wall', 'The Mountain', 11),
-('Nathan Swift', 'Defender', 'Wind', 'Flurry Dash', 'Hurricane Arrow', 11),
 ('Hurley Kane', 'Defender', 'Wind', 'Tsunami Boost', 'Whale Guard', 11),
 ('Scotty Banyan', 'Defender', 'Forest', 'Clone Defense', 'Perfect Tower', 11),
-('Jude Sharp', 'Midfielder', 'Forest', 'Emperor Penguin No. 2', 'Death Zone 2', 11),
 ('Caleb Stonewall', 'Midfielder', 'Fire', 'Killer Fields', 'Emperor Penguin No. 3', 11),
 ('Shawn Froste', 'Midfielder', 'Wind', 'Eternal Blizzard', 'Wolf Legend', 11),
-('Axel Blaze', 'Forward', 'Fire', 'Fire Tornado', 'Maximum Fire', 11),
 ('Xavier Foster', 'Forward', 'Fire', 'Meteor Blade', 'Grand Fire', 11),
 ('Austin Hobbes', 'Forward', 'Forest', 'Tiger Drive', 'Gladius Arch', 11);
 
@@ -125,7 +120,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 
 -- Original Season 2 - Genesis
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Xavier Foster', 'Forward', 'Fire', 'Meteor Blade', 'Supernova', 10),
 ('Bellatrix', 'Midfielder', 'Forest', 'Space Penguin', 'Supernova', 10),
 ('Wheeze', 'Defender', 'Wind', 'Celestial Smash', 'Space Penguin', 10),
 ('Quill', 'Midfielder', 'Mountain', 'Gaia Break', 'Supernova', 10),
