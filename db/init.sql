@@ -61,12 +61,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Mark Evans', 'Goalkeeper', 'Mountain', 'God Hand', 'Majin The Hand', 1),
 ('Nathan Swift', 'Defender', 'Wind', 'Flurry Dash', 'Spinning Cut', 1),
 ('Jack Wallside', 'Defender', 'Mountain', 'The Wall', 'The Mountain', 1),
-('Jim Wraith', 'Defender', 'Forest', 'Coil Turn', 'Spinning Cut', 1),
-('Tod Ironside', 'Defender', 'Fire', 'Dash Storm', 'Quick Draw', 1),
-('Steve Grim', 'Midfielder', 'Forest', 'Grenade Shot', 'Rolling Kick', 1),
-('Tim Saunders', 'Midfielder', 'Forest', 'Kung Fu Attack', 'Whirlwind Force', 1),
-('Sam Kincaid', 'Midfielder', 'Mountain', 'Grenade Shot', 'Quick Draw', 1),
-('Maxwell Carson', 'Midfielder', 'Wind', 'Cross Drive', 'Quick Draw', 1),
 ('Axel Blaze', 'Forward', 'Fire', 'Fire Tornado', 'Inazuma Break', 1),
 ('Kevin Dragonfly', 'Forward', 'Forest', 'Dragon Crash', 'Dragon Tornado', 1);
 
@@ -74,33 +68,17 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
 ('Joseph King', 'Goalkeeper', 'Mountain', 'Power Shield', 'Beast Fang', 2),
 ('Jude Sharp', 'Midfielder', 'Forest', 'Illusion Ball', 'Emperor Penguin No. 2', 2),
-('David Samford', 'Forward', 'Forest', 'Emperor Penguin No. 2', 'Emperor Penguin No. 1', 2),
-('Daniel Hatch', 'Forward', 'Fire', 'Twin Boost', 'Death Zone', 2),
-('Ben Simmons', 'Defender', 'Mountain', 'Killer Slide', 'Power Charge', 2);
+('David Samford', 'Forward', 'Forest', 'Emperor Penguin No. 2', 'Emperor Penguin No. 1', 2);
 
 -- Original Season 1 - Zeus
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Paul Siddon', 'Goalkeeper', 'Mountain', 'Gigant Wall', 'Divine Shield', 3),
-('Apollo Light', 'Defender', 'Fire', 'Divine Arrow', 'Heaven Time', 3),
-('Artie Mishman', 'Midfielder', 'Forest', 'Heaven Time', 'Divine Strike', 3),
-('Jonas Demetrius', 'Forward', 'Mountain', 'Divine Strike', 'God Knows', 3),
 ('Byron Love', 'Forward', 'Wind', 'God Knows', 'Heaven Time', 3);
 
 -- Original Season 1 - Occult
-INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Nathan Jones', 'Goalkeeper', 'Wind', 'Phantom Hand', 'Ghost Pull', 4),
-('Russell Walk', 'Defender', 'Forest', 'Ghost Pull', 'Phantom Shot', 4),
-('Jason Jones', 'Defender', 'Wind', 'Ghost Pull', 'Phantom Shot', 4),
-('Johan Tassman', 'Midfielder', 'Forest', 'Ghost Lock', 'Phantom Shot', 4),
-('Burt Wolf', 'Forward', 'Fire', 'Phantom Shot', 'Ghost Lock', 4);
 
 -- Original Season 2 - Gemini Storm
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Jordan Greenway', 'Midfielder', 'Wind', 'Astro Break', 'Cosmic Blast', 6),
-('Janus', 'Forward', 'Wind', 'Astro Break', 'Universe Blast', 6),
-('Io', 'Defender', 'Mountain', 'Gravitational Force', 'Meteor Shower', 6),
-('Ganymede', 'Midfielder', 'Forest', 'Meteor Shower', 'Cosmic Blast', 6),
-('Callisto', 'Goalkeeper', 'Mountain', 'Black Hole', 'Gravitational Force', 6);
+('Jordan Greenway', 'Midfielder', 'Wind', 'Astro Break', 'Cosmic Blast', 6);
 
 -- Original Season 2 - Epsilon
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
@@ -127,10 +105,6 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 
 -- Original Season 3 - Knights of Queen
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Freddie McQueen', 'Goalkeeper', 'Mountain', 'Galatyn', 'Paladin Guard', 13),
-('Johnny Gascoigne', 'Defender', 'Mountain', 'Stone Prison', 'Paladin Strike', 13),
-('David Buckingham', 'Defender', 'Forest', 'Paladin Strike', 'Stone Prison', 13),
-('Lance Rotten', 'Defender', 'Fire', 'Ultra Moon', 'Paladin Guard', 13),
 ('Edgar Valtinas', 'Forward', 'Forest', 'Excalibur', 'Paladin Strike', 13);
 
 -- Original Season 3 - The Empire
@@ -155,11 +129,9 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Subaru Honda', 'Defender', 'Mountain', 'Full Steam', 'Power Defense', 16),
 ('Gabriel Garcia', 'Defender', 'Forest', 'The Mist', 'Mystic Mist', 16),
 ('Jean-Pierre Lapin', 'Defender', 'Mountain', 'Incandescent Jump', 'Air Steps', 16),
-('Ade Kebe', 'Midfielder', 'Wind', 'Water Whirl', 'Quick Dash', 16),
 ('Arion Sherwind', 'Midfielder', 'Wind', 'Easy Breezy', 'Mach Wind', 16),
 ('Riccardo Di Rigo', 'Midfielder', 'Forest', 'Fortissimo Foot', 'Harmonics', 16),
 ('Victor Blade', 'Forward', 'Fire', 'Doom Sword', 'Death Drop', 16),
-('Michael Ballzack', 'Forward', 'Mountain', 'Sidewinder', 'Power Spike', 16),
 ('Ryoma Nishiki', 'Midfielder', 'Fire', 'Acrobat Keep', 'Samurai Strike', 16),
 ('Aitor Cazador', 'Defender', 'Forest', 'Hunter Net', 'Propulsion Defense', 16);
 
