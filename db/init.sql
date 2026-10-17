@@ -110,14 +110,14 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 -- Original Season 3 - The Empire
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
 ('Jorge Ortega', 'Goalkeeper', 'Mountain', 'Iron Wall', 'Million Hands', 14),
-('Teles Torrue', 'Defender', 'Mountain', 'Iron Wall', 'Zigzag Spark', 14),
+('Thiago Torres', 'Defender', 'Mountain', 'Iron Wall', 'Zigzag Spark', 14),
 ('Julio Acosta', 'Defender', 'Forest', 'Zigzag Spark', 'Rolling Slide', 14),
 ('Gordo Diaz', 'Midfielder', 'Mountain', 'Andes Antlion', 'Iron Wall', 14),
 ('Roberto Torres', 'Midfielder', 'Wind', 'Andes Antlion', 'Rolling Slide', 14);
 
 -- Original Season 3 - Little Gigant
 INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id) VALUES
-('Rococo Ulpa', 'Goalkeeper', 'Mountain', 'God Hand X', 'Tamashii The Hand', 15),
+('Hector Helio', 'Goalkeeper', 'Mountain', 'God Hand X', 'Tamashii The Hand', 15),
 ('Windy Fasta', 'Defender', 'Wind', 'Air Ride', 'Double Jaw', 15),
 ('Walter Mountain', 'Defender', 'Mountain', 'Ground Quake', 'Rock Wall Dam', 15),
 ('Ghoshu Flare', 'Forward', 'Fire', 'Double Jaw', 'X Blast', 15),
@@ -198,3 +198,60 @@ WHERE name IN (
     'Godai Shingo',
     'Art Tundra'
 );
+
+-- Assign player images
+UPDATE players SET image_path='/static/images/hurley-kane.webp' WHERE name='Hurley Kane';
+UPDATE players SET image_path='/static/images/scotty-banyan.webp' WHERE name='Scotty Banyan';
+UPDATE players SET image_path='/static/images/caleb-stonewall.webp' WHERE name='Caleb Stonewall';
+UPDATE players SET image_path='/static/images/shawn-froste.jpeg' WHERE name='Shawn Froste';
+UPDATE players SET image_path='/static/images/xavier-foster.jpeg' WHERE name='Xavier Foster';
+UPDATE players SET image_path='/static/images/austin-hobbes.png' WHERE name='Austin Hobbes';
+
+UPDATE players SET image_path='/static/images/mark-evans.jpg' WHERE name='Mark Evans';
+UPDATE players SET image_path='/static/images/nathan-swift.jpeg' WHERE name='Nathan Swift';
+UPDATE players SET image_path='/static/images/jack-wallside.jpeg' WHERE name='Jack Wallside';
+UPDATE players SET image_path='/static/images/axel-blaze.jpg' WHERE name='Axel Blaze';
+UPDATE players SET image_path='/static/images/kevin-dragonfly.jpg' WHERE name='Kevin Dragonfly';
+
+UPDATE players SET image_path='/static/images/joseph-king.png' WHERE name='Joseph King';
+UPDATE players SET image_path='/static/images/jude-sharp.jpeg' WHERE name='Jude Sharp';
+UPDATE players SET image_path='/static/images/david-samford.png' WHERE name='David Samford';
+
+UPDATE players SET image_path='/static/images/byron-love.jpeg' WHERE name='Byron Love';
+UPDATE players SET image_path='/static/images/jordan-greenway.jpeg' WHERE name='Jordan Greenway';
+UPDATE players SET image_path='/static/images/dvalin.jpeg' WHERE name='Dvalin';
+UPDATE players SET image_path='/static/images/gazelle.jpeg' WHERE name='Gazelle';
+UPDATE players SET image_path='/static/images/bellatrix.jpeg' WHERE name='Bellatrix';
+
+UPDATE players SET image_path='/static/images/edgar-valtinas.jpeg' WHERE name='Edgar Valtinas';
+UPDATE players SET image_path='/static/images/teles-torrue.webp' WHERE name='Thiago Torres';
+UPDATE players SET image_path='/static/images/rococo-ulpa.jpeg' WHERE name='Hector Helio';
+
+UPDATE players SET image_path='/static/images/gigi-blasi.jpeg' WHERE name='Gigi Blasi';
+UPDATE players SET image_path='/static/images/angelo-gabrini.jpeg' WHERE name='Angelo Gabrini';
+UPDATE players SET image_path='/static/images/nakata-hidetoshi.jpeg' WHERE name='Nakata Hidetoshi';
+UPDATE players SET image_path='/static/images/paolo-bianchi.jpeg' WHERE name='Paolo Bianchi';
+UPDATE players SET image_path='/static/images/raffaele-generani.png' WHERE name='Raffaele Generani';
+
+UPDATE players SET image_path='/static/images/samguk-han.jpeg' WHERE name='Samguk Han';
+UPDATE players SET image_path='/static/images/subaru-honda.jpeg' WHERE name='Subaru Honda';
+UPDATE players SET image_path='/static/images/gabriel-garcia.png' WHERE name='Gabriel Garcia';
+UPDATE players SET image_path='/static/images/jean-pierre-lapin.webp' WHERE name='Jean-Pierre Lapin';
+UPDATE players SET image_path='/static/images/arion-sherwind.png' WHERE name='Arion Sherwind';
+UPDATE players SET image_path='/static/images/riccardo-di-rigo.webp' WHERE name='Riccardo Di Rigo';
+UPDATE players SET image_path='/static/images/victor-blade.png' WHERE name='Victor Blade';
+UPDATE players SET image_path='/static/images/ryoma-nishiki.jpeg' WHERE name='Ryoma Nishiki';
+UPDATE players SET image_path='/static/images/aitor-cazador.jpeg' WHERE name='Aitor Cazador';
+
+UPDATE players SET image_path='/static/images/preston-princeton.jpeg' WHERE name='Preston Princeton';
+UPDATE players SET image_path='/static/images/rex-remington.jpeg' WHERE name='Rex Remington';
+UPDATE players SET image_path='/static/images/oxford.jpeg' WHERE name='Oxford';
+UPDATE players SET image_path='/static/images/cornell.jpeg' WHERE name='Cornell';
+UPDATE players SET image_path='/static/images/stanford.jpeg' WHERE name='Stanford';
+
+UPDATE players SET image_path='/static/images/wolfe-whyte.webp' WHERE name='Wolfe Whyte';
+UPDATE players SET image_path='/static/images/njord-snio.jpeg' WHERE name='Njord Snio';
+
+UPDATE players SET image_path='/static/images/senguuji-yamato.jpeg' WHERE name='Senguuji Yamato';
+UPDATE players SET image_path='/static/images/gomaki-tetsurou.jpeg' WHERE name='Gomaki Tetsurou';
+UPDATE players SET image_path='/static/images/gouishi-senma.jpeg' WHERE name='Gouishi Senma';
