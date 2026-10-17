@@ -214,7 +214,7 @@ UPDATE players SET image_path='/static/images/axel-blaze.jpg' WHERE name='Axel B
 UPDATE players SET image_path='/static/images/kevin-dragonfly.jpg' WHERE name='Kevin Dragonfly';
 
 UPDATE players SET image_path='/static/images/joseph-king.png' WHERE name='Joseph King';
-UPDATE players SET image_path='/static/images/jude-sharp.jpeg' WHERE name='Jude Sharp';
+UPDATE players SET image_path='/static/images/jude-sharp.webp' WHERE name='Jude Sharp';
 UPDATE players SET image_path='/static/images/david-samford.png' WHERE name='David Samford';
 
 UPDATE players SET image_path='/static/images/byron-love.jpeg' WHERE name='Byron Love';
