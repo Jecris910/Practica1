@@ -169,3 +169,32 @@ INSERT INTO players (name, position, element, best_move_1, best_move_2, team_id)
 ('Nakata Hidetoshi', 'Midfielder', 'Forest', 'Brave Shot', 'Catenaccio Counter', 21),
 ('Paolo Bianchi', 'Forward', 'Forest', 'Odin Sword', 'Brave Shot', 21),
 ('Raffaele Generani', 'Forward', 'Fire', 'Freeze Shot', 'Odin Sword', 21);
+
+-- Remove players excluded from the final roster
+DELETE FROM players
+WHERE name IN (
+    'Desarm',
+    'Zell',
+    'Metron',
+    'Kormer',
+    'Icer',
+    'Beluga',
+    'Gocker',
+    'Clara',
+    'Wheeze',
+    'Quill',
+    'Nero',
+    'Jorge Ortega',
+    'Julio Acosta',
+    'Gordo Diaz',
+    'Roberto Torres',
+    'Windy Fasta',
+    'Walter Mountain',
+    'Ghoshu Flare',
+    'Drago Hill',
+    'Sascha Kotch',
+    'Guy l''Acier',
+    'Seijou Shougo',
+    'Godai Shingo',
+    'Art Tundra'
+);
