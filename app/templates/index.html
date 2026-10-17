@@ -186,6 +186,41 @@
     font-weight: 500;
 }
 
+
+.performance-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.performance-card {
+    background: #ffffff;
+    border: 2px solid #dddddd;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.10);
+}
+
+.performance-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+}
+
+.performance-card span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cache-hit {
+    color: #16803a;
+}
+
+.cache-miss {
+    color: #b45309;
+}
+
 </style>
 </head>
 
@@ -214,6 +249,30 @@
         <div class="status-card">
             <h3>Cache</h3>
             <span id="cache">Checking...</span>
+        </div>
+    </div>
+
+    <h2>Data performance</h2>
+
+    <div class="performance-container">
+        <div class="performance-card">
+            <h3>Data source</h3>
+            <span id="data-source">Checking...</span>
+        </div>
+
+        <div class="performance-card">
+            <h3>Cache status</h3>
+            <span id="cache-result">Checking...</span>
+        </div>
+
+        <div class="performance-card">
+            <h3>Load time</h3>
+            <span id="load-time">Checking...</span>
+        </div>
+
+        <div class="performance-card">
+            <h3>Cache TTL</h3>
+            <span>60 s</span>
         </div>
     </div>
 
@@ -368,6 +427,28 @@ function loadTeams() {
         .then(data => {
             const table = document.getElementById("teams");
             const filter = document.getElementById("team-filter");
+
+            const dataSource = document.getElementById("data-source");
+            const cacheResult = document.getElementById("cache-result");
+            const loadTime = document.getElementById("load-time");
+
+            if (dataSource) {
+                dataSource.textContent =
+                    data.source === "cache" ? "Redis" : "MySQL";
+            }
+
+            if (cacheResult) {
+                cacheResult.textContent = data.cache || "N/A";
+                cacheResult.className =
+                    data.cache === "HIT" ? "cache-hit" : "cache-miss";
+            }
+
+            if (loadTime) {
+                loadTime.textContent =
+                    data.load_time_ms !== undefined
+                        ? data.load_time_ms + " ms"
+                        : "N/A";
+            }
 
             table.innerHTML = "";
 

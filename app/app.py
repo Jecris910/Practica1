@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template
 import json
+import time
 import os
 import pymysql
 import redis
@@ -98,6 +99,7 @@ def players():
 
 @app.route("/teams")
 def teams():
+    start_time = time.perf_counter()
     cache = None
 
     try:
@@ -107,8 +109,15 @@ def teams():
             cached_teams = cache.get("teams")
 
             if cached_teams:
+                load_time_ms = round(
+                    (time.perf_counter() - start_time) * 1000,
+                    2
+                )
+
                 return jsonify({
                     "source": "cache",
+                    "cache": "HIT",
+                    "load_time_ms": load_time_ms,
                     "teams": json.loads(cached_teams)
                 })
     except Exception:
@@ -135,8 +144,15 @@ def teams():
             except Exception:
                 pass
 
+        load_time_ms = round(
+            (time.perf_counter() - start_time) * 1000,
+            2
+        )
+
         return jsonify({
             "source": "database",
+            "cache": "MISS",
+            "load_time_ms": load_time_ms,
             "teams": teams_data
         })
 
@@ -144,6 +160,7 @@ def teams():
         return jsonify({
             "error": "database unavailable"
         }), 503
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, threaded=False)
