@@ -148,7 +148,45 @@
             padding: 20px;
             border-radius: 8px;
         }
-    </style>
+    
+.player-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.player-header-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.player-header-text h3 {
+    margin-top: 0;
+}
+
+.team-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+#teams tr {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#teams tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#teams td {
+    font-weight: 500;
+}
+
+</style>
 </head>
 
 <body>
@@ -349,11 +387,19 @@ function loadTeams() {
             data.teams.forEach(team => {
                 const row = document.createElement("tr");
 
+                const colors = teamColors[team.name];
+
+                if (colors) {
+                    row.style.background = colors.background;
+                    row.style.color = colors.text;
+                    row.style.borderLeft = "6px solid " + colors.accent;
+                }
+
                 const nameCell = document.createElement("td");
                 const categoryCell = document.createElement("td");
                 const countryCell = document.createElement("td");
 
-                nameCell.textContent = team.name;
+                nameCell.innerHTML = "<strong>" + team.name + "</strong>";
                 categoryCell.textContent = team.category;
                 countryCell.textContent = team.school_or_country;
 
@@ -371,6 +417,26 @@ function loadTeams() {
             });
         });
 }
+
+
+const teamLogos = {
+    "Raimon": "/static/images/teams/raimon.png",
+    "Royal Academy": "/static/images/teams/royal-academy.jpeg",
+    "Zeus": "/static/images/teams/zeus.jpeg",
+    "Gemini Storm": "/static/images/teams/gemini-storm.jpeg",
+    "Epsilon": "/static/images/teams/epsilon.jpeg",
+    "Diamond Dust": "/static/images/teams/diamond-dust.jpeg",
+    "Genesis": "/static/images/teams/genesis.jpeg",
+    "Inazuma Japan": "/static/images/teams/inazuma-japan.png",
+    "Knights of Queen": "/static/images/teams/knights-of-queen.jpeg",
+    "The Empire": "/static/images/teams/the-empire.webp",
+    "Little Gigant": "/static/images/teams/little-gigant.jpeg",
+    "Orpheus": "/static/images/teams/orpheus.png",
+    "Raimon GO": "/static/images/teams/raimon-go.jpeg",
+    "Royal Academy GO": "/static/images/teams/royal-academy.jpeg",
+    "Alpine GO": "/static/images/teams/alpine-go.jpeg",
+    "Dragonlink": "/static/images/teams/dragonlink.jpeg"
+};
 
 function renderPlayers(players) {
     const container = document.getElementById("players");
@@ -419,28 +485,48 @@ function renderPlayers(players) {
         name.textContent = player.name;
 
         const team = document.createElement("p");
-        team.textContent = "Team: " + player.team;
+        team.innerHTML = "<strong>Team:</strong> " + player.team;
 
         const position = document.createElement("p");
-        position.textContent = "Position: " + player.position;
+        position.innerHTML = "<strong>Position:</strong> " + player.position;
 
         const element = document.createElement("p");
-        element.textContent = "Element: " + player.element;
+        element.innerHTML = "<strong>Element:</strong> " + player.element;
 
         const moves = document.createElement("div");
         moves.className = "moves";
 
         const move1 = document.createElement("p");
-        move1.textContent = "Move 1: " + player.best_move_1;
+        move1.innerHTML = "<strong>Move 1:</strong> " + player.best_move_1;
 
         const move2 = document.createElement("p");
-        move2.textContent = "Move 2: " + player.best_move_2;
+        move2.innerHTML = "<strong>Move 2:</strong> " + player.best_move_2;
 
         moves.appendChild(move1);
         moves.appendChild(move2);
 
-        info.appendChild(name);
-        info.appendChild(team);
+        const playerHeader = document.createElement("div");
+        playerHeader.className = "player-header";
+
+        const playerHeaderText = document.createElement("div");
+        playerHeaderText.className = "player-header-text";
+        playerHeaderText.appendChild(name);
+        playerHeaderText.appendChild(team);
+
+        const logoPath = teamLogos[player.team];
+
+        if (logoPath) {
+            const logo = document.createElement("img");
+            logo.className = "team-logo";
+            logo.src = logoPath;
+            logo.alt = player.team + " logo";
+            playerHeader.appendChild(playerHeaderText);
+            playerHeader.appendChild(logo);
+        } else {
+            playerHeader.appendChild(playerHeaderText);
+        }
+
+        info.appendChild(playerHeader);
         info.appendChild(position);
         info.appendChild(element);
         info.appendChild(moves);
