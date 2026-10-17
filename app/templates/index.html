@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inazuma Eleven - Service Status</title>
+    <title>Inazuma Eleven Multi-environment Deployment</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0;
             background: #f4f6f8;
+            color: #222;
         }
 
-        h1 {
+        header {
+            background: #1f2937;
+            color: white;
+            padding: 25px 20px;
             text-align: center;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            margin-top: 35px;
         }
 
         .status-container {
@@ -23,13 +35,13 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         .status-card {
             background: white;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             min-width: 180px;
             text-align: center;
             border: 1px solid #ddd;
@@ -50,10 +62,74 @@
             font-weight: bold;
         }
 
+        .controls {
+            margin: 20px 0;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            min-width: 250px;
+        }
+
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 240px));
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .player-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            min-height: 340px;
+        }
+
+        .player-image-container {
+            width: 100%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .player-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .player-info {
+            padding: 14px;
+        }
+
+        .player-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
+        }
+
+        .player-info p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .moves {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid currentColor;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
+            margin-bottom: 40px;
         }
 
         th,
@@ -66,51 +142,163 @@
         th {
             background: #eee;
         }
+
+        .empty-message {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
 <body>
 
-<h1>Inazuma Eleven Multi-environment Deployment</h1>
+<header>
+    <h1>Inazuma Eleven Multi-environment Deployment</h1>
+    <p>Docker web, database and cache environment</p>
+</header>
 
-<h2>Service status</h2>
+<main>
 
-<div class="status-container">
-    <div class="status-card">
-        <h3>Web</h3>
-        <span id="web">Checking...</span>
+    <h2>Service status</h2>
+
+    <div class="status-container">
+        <div class="status-card">
+            <h3>Web</h3>
+            <span id="web">Checking...</span>
+        </div>
+
+        <div class="status-card">
+            <h3>Database</h3>
+            <span id="database">Checking...</span>
+        </div>
+
+        <div class="status-card">
+            <h3>Cache</h3>
+            <span id="cache">Checking...</span>
+        </div>
     </div>
 
-    <div class="status-card">
-        <h3>Database</h3>
-        <span id="database">Checking...</span>
+    <h2>Players</h2>
+
+    <div class="controls">
+        <label for="team-filter"><strong>Team:</strong></label>
+
+        <select id="team-filter">
+            <option value="all">All teams</option>
+        </select>
     </div>
 
-    <div class="status-card">
-        <h3>Cache</h3>
-        <span id="cache">Checking...</span>
+    <div id="players" class="players-grid">
+        <div class="empty-message">Loading players...</div>
     </div>
-</div>
 
-<h2>Teams</h2>
+    <h2>Teams</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Season</th>
-            <th>School / Country</th>
-        </tr>
-    </thead>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Season</th>
+                <th>School / Country</th>
+            </tr>
+        </thead>
 
-    <tbody id="teams">
-        <tr>
-            <td colspan="3">Loading teams...</td>
-        </tr>
-    </tbody>
-</table>
+        <tbody id="teams">
+            <tr>
+                <td colspan="3">Loading teams...</td>
+            </tr>
+        </tbody>
+    </table>
+
+</main>
 
 <script>
+let allPlayers = [];
+
+const teamColors = {
+    "Raimon": {
+        background: "#f2c94c",
+        accent: "#1f4e8c",
+        text: "#1a1a1a"
+    },
+    "Royal Academy": {
+        background: "#18392b",
+        accent: "#b22222",
+        text: "#ffffff"
+    },
+    "Zeus": {
+        background: "#f5f5f5",
+        accent: "#4169e1",
+        text: "#1a1a1a"
+    },
+    "Gemini Storm": {
+        background: "#5b4b8a",
+        accent: "#20264d",
+        text: "#ffffff"
+    },
+    "Epsilon": {
+        background: "#29223d",
+        accent: "#7d5fff",
+        text: "#ffffff"
+    },
+    "Diamond Dust": {
+        background: "#bdefff",
+        accent: "#4287c7",
+        text: "#17202a"
+    },
+    "Genesis": {
+        background: "#53346d",
+        accent: "#1f1726",
+        text: "#ffffff"
+    },
+    "Inazuma Japan": {
+        background: "#2457a6",
+        accent: "#d62828",
+        text: "#ffffff"
+    },
+    "Knights of Queen": {
+        background: "#202020",
+        accent: "#e8e8e8",
+        text: "#ffffff"
+    },
+    "The Empire": {
+        background: "#79bde8",
+        accent: "#ffffff",
+        text: "#17202a"
+    },
+    "Little Gigant": {
+        background: "#356b3f",
+        accent: "#e1c542",
+        text: "#ffffff"
+    },
+    "Orpheus": {
+        background: "#a82028",
+        accent: "#234f86",
+        text: "#ffffff"
+    },
+    "Raimon GO": {
+        background: "#e4b832",
+        accent: "#1d5791",
+        text: "#1a1a1a"
+    },
+    "Royal Academy GO": {
+        background: "#18392b",
+        accent: "#b22222",
+        text: "#ffffff"
+    },
+    "Alpine GO": {
+        background: "#b9e4f5",
+        accent: "#4a87b8",
+        text: "#17202a"
+    },
+    "Dragonlink": {
+        background: "#303030",
+        accent: "#9c2c2c",
+        text: "#ffffff"
+    }
+};
+
 function statusClass(value) {
     if (value === "connected") {
         return "connected";
@@ -141,29 +329,157 @@ function loadTeams() {
         .then(response => response.json())
         .then(data => {
             const table = document.getElementById("teams");
+            const filter = document.getElementById("team-filter");
+
             table.innerHTML = "";
 
             if (!data.teams) {
-                table.innerHTML =
-                    '<tr><td colspan="3">Database unavailable</td></tr>';
+                const row = document.createElement("tr");
+                const cell = document.createElement("td");
+
+                cell.colSpan = 3;
+                cell.textContent = "Database unavailable";
+
+                row.appendChild(cell);
+                table.appendChild(row);
+
                 return;
             }
 
             data.teams.forEach(team => {
                 const row = document.createElement("tr");
 
-                row.innerHTML =
-                    "<td>" + team.name + "</td>" +
-                    "<td>" + team.category + "</td>" +
-                    "<td>" + team.school_or_country + "</td>";
+                const nameCell = document.createElement("td");
+                const categoryCell = document.createElement("td");
+                const countryCell = document.createElement("td");
+
+                nameCell.textContent = team.name;
+                categoryCell.textContent = team.category;
+                countryCell.textContent = team.school_or_country;
+
+                row.appendChild(nameCell);
+                row.appendChild(categoryCell);
+                row.appendChild(countryCell);
 
                 table.appendChild(row);
+
+                const option = document.createElement("option");
+                option.value = team.name;
+                option.textContent = team.name;
+
+                filter.appendChild(option);
             });
         });
 }
 
+function renderPlayers(players) {
+    const container = document.getElementById("players");
+    container.innerHTML = "";
+
+    if (players.length === 0) {
+        const message = document.createElement("div");
+        message.className = "empty-message";
+        message.textContent = "No players found.";
+
+        container.appendChild(message);
+        return;
+    }
+
+    players.forEach(player => {
+        const card = document.createElement("div");
+        card.className = "player-card";
+
+        const colors = teamColors[player.team];
+
+        if (colors) {
+            card.style.background = colors.background;
+            card.style.color = colors.text;
+            card.style.borderColor = colors.accent;
+            card.style.borderWidth = "3px";
+        }
+
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "player-image-container";
+
+        if (player.image_path) {
+            const image = document.createElement("img");
+            image.className = "player-image";
+            image.alt = player.name;
+            image.src = player.image_path;
+
+            imageContainer.appendChild(image);
+        }
+
+        const info = document.createElement("div");
+        info.className = "player-info";
+
+        const name = document.createElement("h3");
+        name.textContent = player.name;
+
+        const team = document.createElement("p");
+        team.textContent = "Team: " + player.team;
+
+        const position = document.createElement("p");
+        position.textContent = "Position: " + player.position;
+
+        const element = document.createElement("p");
+        element.textContent = "Element: " + player.element;
+
+        const moves = document.createElement("div");
+        moves.className = "moves";
+
+        const move1 = document.createElement("p");
+        move1.textContent = "Move 1: " + player.best_move_1;
+
+        const move2 = document.createElement("p");
+        move2.textContent = "Move 2: " + player.best_move_2;
+
+        moves.appendChild(move1);
+        moves.appendChild(move2);
+
+        info.appendChild(name);
+        info.appendChild(team);
+        info.appendChild(position);
+        info.appendChild(element);
+        info.appendChild(moves);
+
+        card.appendChild(imageContainer);
+        card.appendChild(info);
+
+        container.appendChild(card);
+    });
+}
+
+function loadPlayers() {
+    fetch("/players")
+        .then(response => response.json())
+        .then(data => {
+            if (!data.players) {
+                renderPlayers([]);
+                return;
+            }
+
+            allPlayers = data.players;
+            renderPlayers(allPlayers);
+        });
+}
+
+document.getElementById("team-filter").addEventListener("change", function() {
+    if (this.value === "all") {
+        renderPlayers(allPlayers);
+        return;
+    }
+
+    const filteredPlayers = allPlayers.filter(
+        player => player.team === this.value
+    );
+
+    renderPlayers(filteredPlayers);
+});
+
 loadStatus();
 loadTeams();
+loadPlayers();
 
 setInterval(loadStatus, 5000);
 </script>
